@@ -103,6 +103,14 @@ npm run export
 
 Upload `dist/` to any static host. For GitHub Pages, `npm run prepare-pages` copies the validated export into `docs/`; publish the `main` branch's `/docs` directory in repository **Settings → Pages**. `.nojekyll` is included. Pages work beneath `/chat-city/` without a bundler. Re-export and publish after a stream to update the public snapshot. The public snapshot is not a cloud-hosted Codex builder; generation runs on the streamer's machine.
 
+### Vercel public deployment
+
+Import `raj921/chat-city` into Vercel and deploy the `main` branch. The checked-in `vercel.json` selects the **Other** framework, skips installation and building, and serves the validated `docs/` export. No environment variables are needed for the public city explorer. The production domain should be accessible without Vercel Authentication; confirm it in a signed-out browser before sharing it.
+
+For CLI deployments, `.vercelignore` includes only `docs/` and `vercel.json`. Refresh the snapshot with `npm run prepare-pages` before deploying. Keep the complete source in GitHub for local use and judging.
+
+This deployment includes city navigation, the building directory, author/request details and generated-source inspection. It serves a saved snapshot. Live Twitch ingestion, streamer controls and new Codex builds still run in the local Node server. Hosting that runtime requires authenticated streamer controls, durable shared city/job storage and authenticated Codex execution; publishing the static export does not deploy those services.
+
 ## How Codex is used
 
 This project was implemented in one parent Codex thread, with bounded implementation subtasks. At runtime, each building gets a new SDK thread in `city/jobs/<id>/`. Its working directory contains a contract, a small example and `check.js`, which uses the exact same validator as the server.

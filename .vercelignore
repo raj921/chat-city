@@ -1,0 +1,5 @@
+# Only the validated, anonymous city export is uploaded by the Vercel CLI.
+*
+!docs/
+!docs/**
+!vercel.json

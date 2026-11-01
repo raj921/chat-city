@@ -31,6 +31,7 @@ function staticHTML(html) {
   html = html.replace(/<nav\b[^>]*class=["'][^"']*\bviewer-links\b[^"']*["'][^>]*>[\s\S]*?<\/nav>/gi, '');
   html = html.replace(/<([a-z][a-z0-9]*)\b[^>]*\bdata-live-only(?:=["'][^"']*["'])?[^>]*>[\s\S]*?<\/\1>/gi, '');
   html = html.replace(/<body\b([^>]*)>/i, (_, attrs) => `<body${attrs.replace(/\sdata-mode=["'][^"']*["']/i, '')} data-mode="static">`);
+  html = html.replace('<sup>LIVE</sup>', '<sup>PUBLIC</sup>');
   html = html.replace(/((?:href|src)=["'])\/(?!\/)/g, '$1./');
   html = html.replace(/(["'])\/vendor\//g, '$1./vendor/');
   return html;

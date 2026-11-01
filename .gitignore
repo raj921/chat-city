@@ -10,3 +10,4 @@ dist/
 .unlazy-hook-state.json
 public-site/
 demo-video/
+.vercel/
