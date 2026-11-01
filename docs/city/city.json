@@ -1,0 +1,174 @@
+{
+  "plots": [
+    {
+      "id": "seed-ramen",
+      "x": 0,
+      "z": 0,
+      "author": "chat_city",
+      "prompt": "A midnight ramen shop with a flickering neon sign",
+      "status": "built",
+      "file": "city/buildings/seed-ramen.js",
+      "upgrades": [],
+      "createdAt": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "seed-clocktower",
+      "x": 1.5,
+      "z": 0,
+      "author": "chat_city",
+      "prompt": "A tiny midnight clock tower with a glowing clock face and copper spire",
+      "status": "built",
+      "file": "city/buildings/seed-clocktower.js",
+      "upgrades": [],
+      "createdAt": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "seed-greenhouse",
+      "x": 1.5,
+      "z": 1.5,
+      "author": "chat_city",
+      "prompt": "A glowing botanical greenhouse with planted rows and a pitched glass roof",
+      "status": "built",
+      "file": "city/buildings/seed-greenhouse.js",
+      "upgrades": [],
+      "createdAt": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "seed-observatory",
+      "x": 0,
+      "z": 1.5,
+      "author": "chat_city",
+      "prompt": "An observatory with a mint dome and a telescope looking across the city",
+      "status": "built",
+      "file": "city/buildings/seed-observatory.js",
+      "upgrades": [],
+      "createdAt": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "seed-arcade",
+      "x": -1.5,
+      "z": 1.5,
+      "author": "chat_city",
+      "prompt": "A retro arcade with neon portals, rooftop pixel invaders and a striped entrance",
+      "status": "built",
+      "file": "city/buildings/seed-arcade.js",
+      "upgrades": [],
+      "createdAt": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "seed-bakery",
+      "x": -1.5,
+      "z": 0,
+      "author": "chat_city",
+      "prompt": "A warm bakery with a giant rooftop croissant and a striped peach awning",
+      "status": "built",
+      "file": "city/buildings/seed-bakery.js",
+      "upgrades": [],
+      "createdAt": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "seed-pagoda",
+      "x": -1.5,
+      "z": -1.5,
+      "author": "chat_city",
+      "prompt": "A three-tier lantern pagoda with broad upturned-looking gold eaves",
+      "status": "built",
+      "file": "city/buildings/seed-pagoda.js",
+      "upgrades": [],
+      "createdAt": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "seed-cinema",
+      "x": 0,
+      "z": -1.5,
+      "author": "chat_city",
+      "prompt": "An art deco cinema with a lit marquee, vertical fin and bright ticket booth",
+      "status": "built",
+      "file": "city/buildings/seed-cinema.js",
+      "upgrades": [],
+      "createdAt": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "seed-firestation",
+      "x": 1.5,
+      "z": -1.5,
+      "author": "chat_city",
+      "prompt": "A neighborhood fire station with twin engine bays and a tiny hose tower",
+      "status": "built",
+      "file": "city/buildings/seed-firestation.js",
+      "upgrades": [],
+      "createdAt": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "seed-bookstore",
+      "x": 3,
+      "z": -1.5,
+      "author": "chat_city",
+      "prompt": "A cozy bookshop shaped like a row of oversized books with a reading terrace",
+      "status": "built",
+      "file": "city/buildings/seed-bookstore.js",
+      "upgrades": [],
+      "createdAt": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "seed-laundromat",
+      "x": 3,
+      "z": 0,
+      "author": "chat_city",
+      "prompt": "A mint laundromat with circular washer fronts, a flat roof and a soap-bubble sign",
+      "status": "built",
+      "file": "city/buildings/seed-laundromat.js",
+      "upgrades": [],
+      "createdAt": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "seed-radio",
+      "x": 3,
+      "z": 1.5,
+      "author": "chat_city",
+      "prompt": "A community radio building with a rooftop antenna and concentric broadcast rings",
+      "status": "built",
+      "file": "city/buildings/seed-radio.js",
+      "upgrades": [],
+      "createdAt": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "seed-lighthouse",
+      "x": 3,
+      "z": 3,
+      "author": "chat_city",
+      "prompt": "A striped lighthouse with a glowing lantern room and a wraparound balcony",
+      "status": "built",
+      "file": "city/buildings/seed-lighthouse.js",
+      "upgrades": [],
+      "createdAt": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "seed-sushi",
+      "x": 1.5,
+      "z": 3,
+      "author": "chat_city",
+      "prompt": "A sushi bar with a giant salmon nigiri sign and three warm paper lanterns",
+      "status": "built",
+      "file": "city/buildings/seed-sushi.js",
+      "upgrades": [],
+      "createdAt": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "b-3b8e8647-c6cc-4edf-9f6d-40bcbc82219d",
+      "x": 0,
+      "z": 3,
+      "author": "demo_viewer",
+      "prompt": "A tiny ramen shop with a coral neon sign and a little rooftop steam chimney",
+      "status": "built",
+      "file": "city/buildings/b-3b8e8647-c6cc-4edf-9f6d-40bcbc82219d.js",
+      "upgrades": [],
+      "createdAt": "2026-11-01T09:36:49.363Z"
+    }
+  ],
+  "districts": [],
+  "hypeTrain": {
+    "active": false,
+    "level": 0
+  }
+}
