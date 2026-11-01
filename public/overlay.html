@@ -1,0 +1,5 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chat City · OBS overlay</title><link rel="stylesheet" href="./style.css">
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js","three/addons/controls/OrbitControls.js":"./vendor/OrbitControls.js"}}</script></head>
+<body class="scene overlay" data-mode="live"><div id="viewport" role="img" aria-label="Chat City live overlay"></div><div class="labels" id="labels"></div>
+<aside class="hud overlay-hud"><span class="eyebrow"><span class="live-light"></span> BUILT TOGETHER, LIVE</span><h1>CHAT<span class="accent">CITY</span></h1><div class="count" id="count">Built by chat: 0 buildings</div><p class="muted" id="last">One neighborhood. Every viewer.</p><ul id="queue"></ul><div id="ticker" class="ticker" aria-live="polite">Connecting to city…</div><div id="connection" class="status">CONNECTING</div></aside><div id="scene-error" role="alert" hidden></div><script type="module" src="./city.js"></script></body></html>

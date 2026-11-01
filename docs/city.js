@@ -21,7 +21,10 @@ const loaded = new Map(), construction = new Map(), effects = [], districts = ne
 const labelCollections = [loaded, construction, districts], labelPoint = new THREE.Vector3(), trainTangent = new THREE.Vector3();
 const environment = new THREE.Group(); scene.add(environment);
 const train = new THREE.Group(); scene.add(train);
-let trainLevel = -1, track, fetchingSource = 0;
+let trainLevel = -1, track, fetchingSource = 0, captureFrame = () => {};
+if (renderer && !staticMode && new URLSearchParams(location.search).get('capture') === '1') {
+  captureFrame = setupCapture(renderer.domElement, () => state);
+}
 const hemisphere = new THREE.HemisphereLight(0xb2e4e4, 0x26324a, 2.7); scene.add(hemisphere);
 const moon = new THREE.DirectionalLight(0xe1e8ff, 2.8); moon.position.set(-8, 14, 8); scene.add(moon);
 const warm = new THREE.DirectionalLight(0xffbc94, 1); warm.position.set(7, 5, -5); scene.add(warm);
@@ -223,7 +226,7 @@ if(renderer){
     if(!reducedMotion)for(const item of construction.values())item.arm.rotation.y=t*.45;
     for(let i=effects.length-1;i>=0;i--){const effect=effects[i],elapsed=now-effect.start;for(const particle of effect.particles){particle.p.position.set(particle.vx*elapsed,particle.vy*elapsed-1.5*elapsed*elapsed,particle.vz*elapsed);particle.p.scale.setScalar(Math.max(0,1-elapsed/1.1));}if(elapsed>1.1){dispose(effect.group);effects.splice(i,1);}}
     if(track&&trainLevel>0){const distance=track.getLength();train.children.forEach((car,i)=>{const pos=((reducedMotion?0:t*.8)/distance-i*.48/distance+10)%1;track.getPointAt(pos,car.position);const direction=track.getTangentAt(pos,trainTangent);car.rotation.y=Math.atan2(direction.x,direction.z);});}
-    placeLabels();renderer.render(scene,camera);
+    placeLabels();renderer.render(scene,camera);captureFrame();
   });
   if(!overlay){
     const raycaster=new THREE.Raycaster();let down;
@@ -236,3 +239,52 @@ $('reset-view')?.addEventListener('click',()=>fit(true));
 $('orbit-toggle')?.addEventListener('click',event=>{if(!controls)return;controls.autoRotate=!controls.autoRotate;event.currentTarget.textContent=controls.autoRotate?'Pause orbit':'Resume orbit';event.currentTarget.setAttribute('aria-pressed',String(controls.autoRotate));});
 if(reducedMotion&&$('orbit-toggle')){$('orbit-toggle').textContent='Resume orbit';$('orbit-toggle').setAttribute('aria-pressed','false');}
 void connect();
+
+/** Opt-in local demo recorder: captures only the city canvas and public HUD, never the desktop. */
+export function setupCapture(source, getState) {
+  const button = document.createElement('button');
+  button.type = 'button'; button.textContent = 'Record city demo';
+  Object.assign(button.style, { position:'fixed', right:'24px', top:'100px', zIndex:10, fontSize:'12px' });
+  document.body.append(button);
+  const output = document.createElement('canvas'); output.width = 1920; output.height = 1080;
+  const ctx = output.getContext('2d');
+  let recorder, stream, lastURL, chunks = [], started = 0, timer;
+  function frame() {
+    if (!recorder || recorder.state !== 'recording') return;
+    const state = getState();
+    ctx.fillStyle = '#09141e'; ctx.fillRect(0,0,1920,1080);
+    const factor = Math.min(1920/source.width,1080/source.height), w=source.width*factor,h=source.height*factor;
+    ctx.drawImage(source,(1920-w)/2,(1080-h)/2,w,h);
+    const shade=ctx.createLinearGradient(0,0,0,180);shade.addColorStop(0,'#09141e');shade.addColorStop(1,'#09141e00');ctx.fillStyle=shade;ctx.fillRect(0,0,1920,180);
+    ctx.textAlign='left';ctx.fillStyle='#e8f2ee';ctx.font='bold 42px system-ui';ctx.fillText('CHAT CITY',50,65);
+    ctx.fillStyle='#77e1d1';ctx.font='17px monospace';ctx.fillText('YOUR CHAT. YOUR SKYLINE.',52,98);
+    ctx.textAlign='right';ctx.fillStyle='#afc7d0';ctx.font='16px monospace';ctx.fillText(state.runtime?.twitch === 'connected' ? 'TWITCH CHAT / REAL CODEX RUNTIME' : 'SIMULATED TWITCH INPUT / REAL CODEX RUNTIME',1870,58);
+    const elapsed=Math.floor((performance.now()-started)/1000);ctx.fillText(String(elapsed).padStart(2,'0')+'s',1870,90);
+    ctx.textAlign='left';ctx.fillStyle='#10232fee';ctx.fillRect(30,940,1860,110);
+    ctx.fillStyle='#77e1d1';ctx.font='15px monospace';ctx.fillText('CITY FREQUENCY',55,973);
+    ctx.fillStyle='#d8eae5';ctx.font='23px monospace';ctx.fillText((state.ticker||'A city built together').slice(0,112),55,1010);
+    ctx.textAlign='right';ctx.fillStyle='#aec4cb';ctx.font='16px monospace';ctx.fillText(state.plots.filter(p=>p.status==='built').length+' BUILDINGS',1860,1010);
+    const waiting=state.jobs?.filter(j=>j.status==='building')||[];
+    if(waiting.length){ctx.textAlign='left';ctx.fillStyle='#77e1d1';ctx.font='20px monospace';ctx.fillText('CODEX IS BUILDING @'+waiting[0].author.toUpperCase(),55,150);}
+  }
+  button.onclick = () => {
+    if(recorder?.state==='recording'){recorder.stop();return;}
+    if(!output.captureStream || typeof MediaRecorder==='undefined'){button.textContent='Recording unavailable in this browser';return;}
+    chunks=[];
+    const mime=['video/webm;codecs=vp9','video/webm;codecs=vp8','video/webm'].find(type=>MediaRecorder.isTypeSupported(type));
+    stream=output.captureStream(24);
+    recorder=new MediaRecorder(stream,{mimeType:mime,videoBitsPerSecond:4_000_000});
+    recorder.ondataavailable=event=>{if(event.data.size)chunks.push(event.data);};
+    recorder.onstop=()=>{
+      clearTimeout(timer);if(lastURL)URL.revokeObjectURL(lastURL);const url=URL.createObjectURL(new Blob(chunks,{type:recorder.mimeType}));
+      lastURL=url;const link=document.createElement('a');link.href=url;link.download='chat-city-demo.webm';link.textContent='Save recorded city video';
+      link.className='capture-download';Object.assign(link.style,{position:'fixed',top:'145px',right:'24px',zIndex:10,background:'#10232f',padding:'12px',fontSize:'12px'});
+      document.querySelector('.capture-download')?.remove();document.body.append(link);button.textContent='Record another city demo';
+      stream.getTracks().forEach(track=>track.stop());
+    };
+    started=performance.now();recorder.start(1000);button.textContent='Stop recording & prepare video';
+    timer=setTimeout(()=>{if(recorder.state==='recording')recorder.stop();},120000);
+    frame();
+  };
+  return frame;
+}

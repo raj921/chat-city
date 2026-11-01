@@ -164,6 +164,17 @@
       "file": "city/buildings/b-3b8e8647-c6cc-4edf-9f6d-40bcbc82219d.js",
       "upgrades": [],
       "createdAt": "2026-11-01T09:36:49.363Z"
+    },
+    {
+      "id": "b-335e7d96-74bd-46f5-965f-42bf41d187be",
+      "x": -1.5,
+      "z": 3,
+      "author": "bubble_tea_fan",
+      "prompt": "a cozy bubble tea shop with a giant glowing cup on the roof",
+      "status": "built",
+      "file": "city/buildings/b-335e7d96-74bd-46f5-965f-42bf41d187be.js",
+      "upgrades": [],
+      "createdAt": "2026-11-01T14:58:41.870Z"
     }
   ],
   "districts": [],

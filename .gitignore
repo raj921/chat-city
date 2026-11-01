@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+!.env.example
+city/jobs/
+city/usage.log
+dist/
+.DS_Store
+.unlazy/
+.unlazy-hook-state.json
+public-site/
+demo-video/

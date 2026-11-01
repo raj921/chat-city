@@ -1,0 +1,24 @@
+{
+  "name": "chat-city",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=25"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test --test-reporter=tap",
+    "seed": "node scripts/seed.js",
+    "export": "node scripts/export.js",
+    "timings": "node scripts/timings.js",
+    "prepare-pages": "node scripts/prepare-pages.js"
+  },
+  "dependencies": {
+    "@openai/codex-sdk": "0.166.0",
+    "dotenv": "17.4.2",
+    "three": "0.182.0",
+    "ws": "8.22.1"
+  }
+}

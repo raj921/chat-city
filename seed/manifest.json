@@ -1,0 +1,72 @@
+[
+  {
+    "id": "seed-ramen",
+    "file": "ramen.js",
+    "prompt": "A midnight ramen shop with a flickering neon sign"
+  },
+  {
+    "id": "seed-clocktower",
+    "file": "clocktower.js",
+    "prompt": "A tiny midnight clock tower with a glowing clock face and copper spire"
+  },
+  {
+    "id": "seed-greenhouse",
+    "file": "greenhouse.js",
+    "prompt": "A glowing botanical greenhouse with planted rows and a pitched glass roof"
+  },
+  {
+    "id": "seed-observatory",
+    "file": "observatory.js",
+    "prompt": "An observatory with a mint dome and a telescope looking across the city"
+  },
+  {
+    "id": "seed-arcade",
+    "file": "arcade.js",
+    "prompt": "A retro arcade with neon portals, rooftop pixel invaders and a striped entrance"
+  },
+  {
+    "id": "seed-bakery",
+    "file": "bakery.js",
+    "prompt": "A warm bakery with a giant rooftop croissant and a striped peach awning"
+  },
+  {
+    "id": "seed-pagoda",
+    "file": "pagoda.js",
+    "prompt": "A three-tier lantern pagoda with broad upturned-looking gold eaves"
+  },
+  {
+    "id": "seed-cinema",
+    "file": "cinema.js",
+    "prompt": "An art deco cinema with a lit marquee, vertical fin and bright ticket booth"
+  },
+  {
+    "id": "seed-firestation",
+    "file": "firestation.js",
+    "prompt": "A neighborhood fire station with twin engine bays and a tiny hose tower"
+  },
+  {
+    "id": "seed-bookstore",
+    "file": "bookstore.js",
+    "prompt": "A cozy bookshop shaped like a row of oversized books with a reading terrace"
+  },
+  {
+    "id": "seed-laundromat",
+    "file": "laundromat.js",
+    "prompt": "A mint laundromat with circular washer fronts, a flat roof and a soap-bubble sign"
+  },
+  {
+    "id": "seed-radio",
+    "file": "radio.js",
+    "prompt": "A community radio building with a rooftop antenna and concentric broadcast rings"
+  },
+  {
+    "id": "seed-lighthouse",
+    "file": "lighthouse.js",
+    "prompt": "A striped lighthouse with a glowing lantern room and a wraparound balcony"
+  },
+  {
+    "id": "seed-sushi",
+    "file": "sushi.js",
+    "prompt": "A sushi bar with a giant salmon nigiri sign and three warm paper lanterns"
+  }
+]
