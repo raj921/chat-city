@@ -1,7 +1,7 @@
 # Chat City
 
-Public, anonymous city explorer for Chat City: Twitch chat codes a city live, one building per viewer.
+**[Explore the public city →](https://raj921.github.io/chat-city/)**
 
-This repository currently hosts only the sanitized public viewer in `docs/`. It contains 14 starter buildings and one real Codex runtime building. Streamer controls, server source, runtime jobs, credentials and usage logs are excluded.
+Twitch chat codes a city, one building per viewer. This public snapshot has 14 starter buildings and one real Codex runtime building. Visitors can orbit the neighborhood and inspect a building's author, description and generated module. **No account is required.**
 
-Visitors can orbit the neighborhood and inspect a building's author, original description and generated module. No account is required.
+This repository currently hosts only the sanitized public viewer in `docs/`. Streamer controls, server source, runtime jobs, credentials and usage logs are excluded. Full application-source publication is pending separate approval.
